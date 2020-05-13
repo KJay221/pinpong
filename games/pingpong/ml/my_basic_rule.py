@@ -42,7 +42,10 @@ def ml_loop(side: str):
                 l_b_y=b_y
             else:  
                 if b_y-l_b_y<0:
-                    m=(b_y-l_b_y)/(b_x-l_b_x)
+                    if (b_x-l_b_x) == 0:
+                        m=(b_y-l_b_y)/0.0001
+                    else :
+                        m=(b_y-l_b_y)/(b_x-l_b_x)
                     x=(80-l_b_y+m*l_b_x)/m
                     if x>200:
                         n_y=m*200-m*l_b_x+l_b_y
